@@ -45,14 +45,12 @@ def NCM():
         # S.insert(indexZ, CityMin[Z.index(x)])#min(Z) заменил на x
         # Distance = Distance + x#min(Z) заменил на x
         # X.remove(CityMin[Z.index(x)])#min(Z) заменил на x
-        print("Z: ", Z)
         x = r.choice(Z)
-        print("x: ",x)
-        S.insert(Z.index(x), CityMin[Z.index(x)])#min(Z) заменил на x
-        print("Z.index(x)",Z.index(x))
-        print("CityMin[Z.index(x)]:",CityMin[Z.index(x)])
-        Distance = Distance + x#min(Z) заменил на x
-        print("X:",X)
-        X.remove(int(CityMin[Z.index(x)]))#min(Z) заменил на x
+        S.insert(Z.index(min(Z)), CityMin[Z.index(min(Z))])#min(Z) заменил на x
+        Distance = Distance + min(Z)#min(Z) заменил на x
+        X.remove(CityMin[Z.index(min(Z))])#min(Z) заменил на x
     #print("---" * 20, "\nPath: ", S,"\nDistance: ",Distance)
     return(S,Distance)
+    #return
+s, d = NCM()
+print(s,":::",d)
