@@ -50,10 +50,21 @@ for j in range(2000):
             PopulationFit[i] = ComputerFit(m)
 # Селекция
     Population, PopulationFit = selections[selection](Population, PopulationFit)
+#         Children, ChildrenFit = selections[selection](Children, PopulationFit)
+#         Population = Population[:10] + Children[:10]
+#         PopulationFit = PopulationFit[:10] + ChildrenFit[:10]
 # Вывод популяции
     print("Selection:")
     print(j, "- population")
-    for i in range(len(Population)):
-        print(Population[i], PopulationFit[i])
-    if checkFlag():
+    _max = max(PopulationFit)
+    print(Population[PopulationFit.index(_max)],round(_max,2))
+    # for i in range(len(Population)):
+    #     print(Population[i], PopulationFit[i])
+    if checkFlag() or j == 2000:
+        for i in range(len(Population)):
+            print(Population[i], round(PopulationFit[i],2))
         break
+    if j == 0:
+        for i in range(len(Population)):
+            print(Population[i], round(PopulationFit[i], 2))
+
